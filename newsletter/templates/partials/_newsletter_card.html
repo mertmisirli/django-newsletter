@@ -1,0 +1,38 @@
+<div class="newsletter-item">
+    <h3>{{ newsletter.title }}</h3>
+    <p>{{ newsletter.content }}</p>
+    <a href="{% url 'news_detail' newsletter.id%}" class="detail-button">Detay</a>
+</div>
+
+<style>
+
+.newsletter-item {
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 15px 0;
+    transition: transform 0.2s, box-shadow 0.2s; /* Geçiş efektleri */
+}
+
+.newsletter-item:hover {
+    transform: translateY(-5px); /* Hover etkisi */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Hover sırasında gölgeyi artırma */
+}
+
+.detail-button {
+    background-color: #007BFF; /* Mavi arka plan */
+    color: white; /* Beyaz yazı rengi */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Geçiş efekti */
+}
+
+.detail-button:hover {
+    background-color: #0056b3; /* Hover sırasında daha koyu mavi */
+}
+
+
+</style>

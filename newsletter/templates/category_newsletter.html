@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>{{ category.name }} Kategorisi</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        .header {
+            background: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+        .newsletter-card {
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            margin-bottom: 20px;
+            background: white;
+            transition: box-shadow 0.3s;
+        }
+        .newsletter-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card-title {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="header">
+            <h1>{{ category.title }} Kategorisi</h1>
+        </div>
+
+        <h2 class="mt-4">Haber Bültenleri</h2>
+        <ul class="list-unstyled">
+            {% for news in newsletters %}
+                <li>
+                    <div class="newsletter-card p-3">
+                        <h5 class="card-title">{{ news.title }}</h5>
+                        <p>{{ news.content|truncatewords:30 }}</p>
+                        <a href="{% url 'news_detail' news.id%}" class="detail-button">Detay</a>
+
+                    </div>
+                </li>
+            {% empty %}
+                <li>
+                    <div class="alert alert-warning" role="alert">
+                        Bu kategoride hiç haber bülteni yok.
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
