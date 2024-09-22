@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,61 +12,74 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+
         header {
             background: #007BFF;
             color: white;
             padding: 10px;
             text-align: center;
         }
+
         .container {
             display: flex;
             margin: 20px;
         }
+
         .categories {
-            width: 25%; /* Sağdaki kategori bölümü */
+            width: 20%;
+            /* Sağdaki kategori bölümü */
             padding: 10px;
             background: #ffffff;
             margin-right: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         .content {
-            width: 75%; /* Soldaki içerik bölümü */
+            width: 80%;
+            /* Soldaki içerik bölümü */
             padding: 10px;
             background: #ffffff;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         li {
             background: #e9ecef;
             margin: 5px 0;
             padding: 10px;
             border-radius: 5px;
         }
+
         h2 {
             color: #007BFF;
         }
+
         p {
             padding: 15px;
             margin: 10px 0;
         }
     </style>
 </head>
+
 <body>
-    <header>
+    {% include 'partials/_navbar.html' %}
+    <!-- <header>
         <h1>Haber Bültenleri</h1>
-    </header>
+    </header> -->
 
     <div class="container">
+        
         <div class="categories">
             <h2>Kategoriler</h2>
             <ul>
                 {% for c in newsletterCategories %}
-                    <li><a href="{% url 'category_newsletter' c.id%}">{{ c.title }}</a></li>
+                <li><a href="{% url 'category_newsletter' c.id%}">{{ c.title }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -73,9 +87,30 @@
         <div class="content">
             <h2>Haber Bültenleri</h2>
             {% for newsletter in newsletters %}
-                {% include 'partials/_newsletter_card.html' %}
+            {% include 'partials/_newsletter_card.html' %}
             {% endfor %}
+
+            <div>
+                <div style="display: flex;">
+                    {% for page in page_range %}
+                    <a href="?page={{ page }}">
+                        <p
+                            style="margin-left: 15px; padding: 10px; border-radius: 12px; cursor: pointer; border: 2px solid #b45f5f; ">
+                            {{ page }}
+                        </p>
+                    </a>
+                    {% endfor %}
+                </div>
+
+                {% if total_page_count != 0 %}
+                <p>Sayfa {{ current_page }}/{{ total_page_count }} </p>
+                {% else %}
+                {% endif %}
+            </div>
         </div>
+
+
     </div>
 </body>
+
 </html>

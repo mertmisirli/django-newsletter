@@ -1,0 +1,53 @@
+<nav class="navbar">
+    <div class="container-menu">
+        <a href="/newsletter" class="navbar-brand">Haber Bültenleri</a>
+        <ul class="navbar-menu">
+            <li><a href="/">Ana Sayfa</a></li>
+            <li><a href="/about/">Hakkında</a></li>
+            <li><a href="/services/">Hizmetler</a></li>
+            <li><a href="/contact/">İletişim</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+
+.navbar {
+    background-color: #4CAF50; /* Arka plan rengi */
+    padding: 10px 20px; /* İç boşluk */
+}
+
+.container-menu {
+    display: flex; /* Esnek düzen */
+    justify-content: space-between; /* Alanı dağıt */
+    align-items: center; /* Dikey ortalama */
+}
+
+.navbar-brand {
+    color: white; /* Yazı rengi */
+    text-decoration: none; /* Altı çizgiyi kaldır */
+    font-size: 24px; /* Yazı boyutu */
+}
+
+.navbar-menu {
+    list-style: none; /* Madde işaretlerini kaldır */
+    display: flex; /* Esnek düzen */
+}
+
+.navbar-menu li {
+    margin-left: 20px; /* Soldan boşluk */
+}
+
+.navbar-menu a {
+    color: white; /* Yazı rengi */
+    text-decoration: none; /* Altı çizgiyi kaldır */
+    padding: 5px 10px; /* İç boşluk */
+    transition: background-color 0.3s; /* Geçiş efekti */
+}
+
+.navbar-menu a:hover {
+    background-color: #45a049; /* Hover rengi */
+    border-radius: 4px; /* Köşeleri yuvarla */
+}
+
+</style>
